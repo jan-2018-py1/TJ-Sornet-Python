@@ -1,0 +1,25 @@
+div {
+    text-align: center;
+}
+
+#red {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: red;
+    color: white;
+}
+
+#green {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    color: white;
+}
+input {
+    margin-bottom: 20px;
+}

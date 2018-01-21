@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Great Numbers Game</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to the Great Number Game!</h1>
+            <p>I am thinking of a number between 1 and 100</p>
+            <p>Take a guess!</p>
+            {%if session['compNum'] != session['player_guess']%}
+                {%if session['player_guess'] != undefined%}
+                    <div id="red">
+                        <p>{{session['message']}}</p>
+                    </div>
+                {%endif%}
+                <p></p>
+                <form action="/process" method="post">
+                    <input type="text" name="guessnumber">
+                    <input type="submit" value="Guess!">
+                </form> 
+            {%else%}
+            <div id="green">
+                <p id="greenp">{{session['player_guess']}} was the number!</p>
+                <form action="/playagain" method="post">
+                    <input type="submit" value="Play Again?">
+                </form>
+            </div>
+            {%endif%}
+        </div>
+    </body>
+</html>
