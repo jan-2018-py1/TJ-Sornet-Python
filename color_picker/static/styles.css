@@ -1,0 +1,23 @@
+#container {
+    width: 980px;
+    text-align: center;
+}
+#colorForm {
+    width: 300px;
+    display: inline-block;
+    text-align: left;
+}
+#warning {
+    color: red;
+}
+#button {
+    margin-left: 200px;
+}
+#value {
+    width: 150px;
+    display: inline-block;
+}
+#key {
+    width: 50px;
+    display: inline-block;
+}
