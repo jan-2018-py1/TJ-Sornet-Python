@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Full Friends</title>
+        <style>
+            #container {
+                width: 980px;
+            }
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+                
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+                
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>FRIENDS:</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Friend Since</th>
+                </tr>
+            {% for friend in all_friends: %}
+                <tr>
+                    <td>{{ friend['name'] }}</td>
+                    <td>{{ friend['age'] }}</td>
+                    <td>{{ friend['friend_since'].strftime('%b %d %Y') }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+            <h2>Add a Friend</h2>
+            <form action='/friends' method='POST'>
+                <p><label for="name">Name:<input type="text" name="name" id="name"></label></p>
+                <p><label for="age">Age:<input type="text" name="age" id="age"></label></p>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>    
