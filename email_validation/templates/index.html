@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Email Validation</title>
+        <style>
+            #container {
+                width: 980px;
+                margin: 100px 0px 0px 100px;
+            }
+            #submit {
+                margin-left: 200px;
+            }
+            #email {
+                width: 150px;
+            }
+            #flash {
+                background-color: red;
+                color: white;
+                width: 400px;
+                padding: 20px;
+                margin-left: 200px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p id="flash">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action='/email' method='POST'>
+                <p><label for="email">Email Address: <input type="text" name="email" id="email"></label></p>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+    </body>
+</html>  
