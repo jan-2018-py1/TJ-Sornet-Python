@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Registration</title>
+	<style>
+		input {
+			display: block;
+			margin-bottom: 20px;
+			height: 20px;
+		}
+		#container {
+			width: 980px;
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+        <h1>Welcome {{ user.first_name }}</h1>
+        <a href="/logout">Log Out</a>
+	</div>
+</body>
+</html>
