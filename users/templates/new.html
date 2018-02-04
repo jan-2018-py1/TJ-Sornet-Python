@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Users New</title>
+        <style>
+            #container {
+                width: 980px;
+                margin: 100px 0px 0px 100px;
+            }
+            a, h1, p, #submit {
+                font-family: arial, sans-serif;
+            }
+            input {
+                display: block;
+            }
+            #submit {
+                background-color: blue;
+                color: white;
+                height: 30px;
+                width: 100px;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Add a new user</h1>
+            <form action="/users/create", method='post'>
+                <p>First Name:</p>
+                <input type="text" name="first_name">
+                <p>Last Name:</p>
+                <input type="text" name="last_name">
+                <p>Email:</p>
+                <input type="email" name="email">
+                <p><input type="submit" value="Create" id="submit"></p>
+            </form>
+            <p><a href="/users">Go Back</a></p>
+        </div>
+    </body>
+</html>  
