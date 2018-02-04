@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Wall</title>
+	<style>
+		#container {
+			width: 980px;
+			margin-left: 800px;
+		}
+		#flash {
+			color: red;
+		}
+        #header {
+            font-weight: bold;
+			width: 1080px;
+        }
+        h2, #header h3, #header form {
+            display: inline;
+        }
+        #header h3 {
+            margin-left: 500px;
+        }
+        
+	</style>
+</head>
+<body>
+    <div id="header">
+        <h2>CodingDojo Wall</h2>
+        <h3>Login:</h3>
+        <form action="/login" method="POST">
+			<input type="text" name="email" placeholder="Email Address">
+			<input type="password" name="password" placeholder="Password">
+			<input type="submit" value="Submit">
+		</form>
+        <hr>
+    </div>
+	<div id="container">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<p id="flash">{{ message }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+        <h3>Register for an account:</h3>
+        <div id="form">
+		<form action="/register" method="POST">
+			<p><input type="text" name="first_name" placeholder="First Name"></p>
+			<p><input type="text" name="last_name" placeholder="Last Name"></p>
+			<p><input type="text" name="email" placeholder="Email"></p>
+			<p><input type="password" name="password" placeholder="Password"></p>
+			<p><input type="password" name="confirm" placeholder="Confirm Password"></p>
+			<p><input type="submit" name=""></p>
+        </form>
+        </div>
+	</div>
+</body>
+</html>

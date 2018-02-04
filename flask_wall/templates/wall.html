@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Wall</title>
+	<style>
+		#container {
+			width: 980px;
+			padding: 50px 100px 100px 100px;
+		}
+		#flash {
+			color: red;
+		}
+        #header {
+            font-weight: bold;
+            width: 980px;
+        }
+        h2, #header h3, #header form {
+            display: inline;
+        }
+        #header h3 {
+            margin-left: 550px;
+        }
+        a {
+            margin-left: 50px;
+        }
+        #post {
+            display: block;
+            width: 100%;
+        }
+        textarea {
+            width: 80%;
+            height: 50px;
+        }
+        .posts {
+            margin-left: 50px;
+            width: 750px;
+            font-size: .95em;
+        }
+        .comments {
+            width: 900px;
+            margin-left: 60px;
+            font-size: .9em;
+        }
+        .commentMsg {
+            width: 750px;
+        }
+        .submitMessage {
+            background-color: blue;
+            color: white;
+            height: 30px;
+            margin-left: 690px;
+        }
+        .submitComment {
+            background-color: green;
+            color: white;
+            height: 30px;
+            margin-left: 620px;
+        }
+        .commentInfo, .postsInfo {
+            font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+    <div id="header">
+        <h2>CodingDojo Wall</h2>
+        <h3>Welcome {{ session['first_name'] }}</h3>
+        <a href="/logout">Logout</a>
+        <hr>
+    </div>
+	<div id="container">
+        <div id="post">
+            <h3>Post a message</h3>
+            <form action="/message" method="POST">
+                <p><textarea name="message"></textarea></p>
+                <input type="submit" value="Post a message" class="submitMessage">
+            </form>
+        </div>
+        {% for message in post: %}
+        <div id="messages">
+            <p class="postsInfo">{{ message.first_name }} {{ message.last_name }} - {{ message.created_at }}</p>
+            <p class="posts">{{ message.message }} </p>
+        </div>
+        <div class="comments">
+            {% for comments in comment: %}
+                {% if comments.message_id == message.id %}
+                    <p class="commentInfo">{{ comments.first_name }} {{ comments.last_name }} - {{ comments.created_at }}</p>
+                    <p class="commentMsg">{{ comments.comment }} </p>
+                {% endif %}
+            {% endfor %}
+                <h4>Post a comment</h4>
+                <form action="/comment" method="POST">
+                    <input type="hidden" name="postID" value = "{{ message.id }}"/>
+                    <p><textarea name="comment"></textarea></p>
+                    <input type="submit" value="Post a comment" class="submitComment">
+                </form>
+        </div>
+        {% endfor %}
+	</div>
+</body>
+</html>
