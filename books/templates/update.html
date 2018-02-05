@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Books</title>
+        <style>
+            #container {
+                width: 980px;
+                margin: 100px 0px 0px 100px;
+            }
+            a, h1, p, #submit {
+                font-family: arial, sans-serif;
+            }
+            input {
+                display: block;
+            }
+            #submit {
+                background-color: blue;
+                color: white;
+                height: 30px;
+                width: 150px;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Update Book</h1>
+            <form action="/users/{{ getBook['id'] }}", method='post'>
+                <p>Title: <input type="text" name="title" placeholder="{{ getBook['title'] }}"></p>
+                <p>Author: <input type="text" name="author" placeholder="{{ getBook['author'] }}"></p>
+                <p><input type="submit" value="Update Book" id="submit"></p>
+            </form>
+        </div>
+    </body>
+</html>  

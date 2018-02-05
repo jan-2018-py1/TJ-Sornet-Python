@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Delete?</title>
+        <style>
+            #container {
+                width: 980px;
+                margin: 100px 0px 0px 100px;
+            }
+            p {
+                font-family: arial, sans-serif;
+                text-align: center;
+            }
+            a {
+                height: 20px;
+                width: 100px;
+                display: inline-block;
+                padding: 5px;
+            }
+            #cancel {
+                background-color: red;
+                color: white;
+                font-size: 1em;
+                text-decoration: none;
+                padding: 5px;
+            }
+            #delete {
+                background-color: green;
+                color: white;
+                width: 150px;
+                font-size: 1em;
+                margin-left: 200px;
+                text-decoration: none;
+                padding: 5px;
+            }
+            #button {
+                text-align: center;
+            }
+            form {
+                text-align: center;
+                width: 400px;
+                display: inline-block;
+                vertical-align: top;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <p>Are you sure you want to delete {{ getBook['title'] }}</p>
+            <div id="buttons">
+                <form action="/"><input type="submit" id="cancel" value="Cancel"></form><form action="/destroy/{{ getBook['id'] }}" method="post"><input type="submit" id="delete" value="Delete Book"></form>
+            </div>
+        </div>
+    </body>
+</html>  

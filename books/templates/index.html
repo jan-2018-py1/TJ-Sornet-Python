@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Books</title>
+        <style>
+            #container {
+                width: 980px;
+                margin: 100px 0px 0px 100px;
+            }
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+                
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+                
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+
+            a, h1 {
+                font-family: arial, sans-serif;
+            }
+
+            button {
+                background-color: blue;
+                height: 30px;
+                width: 100px;
+                font-size: 1em;
+                margin-left: 450px;
+            }
+            button a {
+                color: white;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>My Books</h1>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                </tr>
+                {% for book in all_books: %}
+                    <tr>
+                        <td>{{ book['title'] }}</td>
+                        <td>{{ book['author'] }}</td>
+                        <td>{{ book['created_at'].strftime('%D') }}</td>
+                        <td><a href="/destroy/{{ book['id'] }}">delete</a>  <a href="/update/{{ book['id'] }}">update</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <p><button><a href="/add">Add a book</a></button></p>
+        </div>
+    </body>
+</html>  
